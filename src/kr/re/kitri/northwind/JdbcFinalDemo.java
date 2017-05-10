@@ -22,13 +22,19 @@ public class JdbcFinalDemo {
         JdbcService service = new JdbcService();
         List<Customer> list = service.makeList(DB_URL, USERNAME, PASSWORD); //
 
+        list.stream().forEach(x -> System.out.println(x));
+        // for문을 위에 처럼 간편하게 사용할 수 이씅ㅁ
+//        for(Customer e : list) {
+//            System.out.println(e);
+//        }
+
     }
 
     private static void loadDriver(String DRIVER_POSTGRES) {
 
         try {
             Class.forName(DRIVER_POSTGRES);
-            System.out.println("driver loading ok...");
+            System.out.println("driver_1 loading ok...");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
